@@ -3,3 +3,9 @@ version: 2
 mkdocs:
   configuration: mkdocs.yml
   fail_on_warning: false
+
+
+ # Explicitly set the version of Python and its requirements
+python:
+  install:
+    - requirements: docs/requirements.txt
