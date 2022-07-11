@@ -1,1 +1,8 @@
-site_name: My Docs
+site_name: SFU Cedar
+
+theme:
+    name: readthedocs
+
+nav:
+    - Home: index.md
+
