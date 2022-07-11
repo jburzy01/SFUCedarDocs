@@ -3,6 +3,8 @@ site_description: Documentation for the SFU Tier 3
 
 repo_name: GitHub
 repo_url: https://github.com/jburzy01/SFUCedarDocs
+edit_uri: 'tree/main/docs'
+
 
 theme:
     name: readthedocs
