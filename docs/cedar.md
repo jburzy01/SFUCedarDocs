@@ -15,7 +15,8 @@ task.
 * PROJECT: The project space has a significantly larger quota and is well-adapted to sharing data among members of a research group since it, unlike the home or scratch, is linked to a professor's account rather than an individual user. The data stored in the project space should be fairly static, that is to say the data are not likely to be changed many times in a month. Otherwise, frequently changing data - including just moving and renaming directories - in project can become a heavy burden on the tape-based backup system.
 * SCRATCH: For intensive read/write operations on large files (> 100 MB per file), scratch is the best choice. Remember however that important files must be copied off scratch since they are not backed up there, and older files are subject to purging. The scratch storage should therefore be used for temporary files: checkpoint files, output from jobs and other data that can easily be recreated.
 
-See [here](https://docs.alliancecan.ca/wiki/Storage_and_file_management#Storage_types) for more details.
+See [here](https://docs.alliancecan.ca/wiki/Storage_and_file_management#Storage_types) and
+[here](https://docs.alliancecan.ca/wiki/Cedar#Storage) for more details.
 
 ## Resource intensive work
 
