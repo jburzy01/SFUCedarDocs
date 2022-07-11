@@ -1,2 +1,2 @@
-# Welcome to the SFU Cedar documentation
+Welcome to the SFU Cedar documentation!
 

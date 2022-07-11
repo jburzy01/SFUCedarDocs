@@ -3,3 +3,11 @@ site_name: SFU Cedar
 theme:
     name: readthedocs
 
+nav:
+    - Home: index.md
+    - Getting started: setup.md
+    - Using the batch system: batch.md
+
+plugins:
+    - search
+
