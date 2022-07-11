@@ -1,12 +1,16 @@
 site_name: SFU Cedar
+site_description: Documentation for the SFU Tier 3
+
+repo_name: GitHub
+repo_url: https://github.com/jburzy01/SFUCedarDocs
 
 theme:
     name: readthedocs
 
 nav:
     - Home: index.md
-    - Getting started: setup.md
-    - Using the batch system: batch.md
+    - Setup: setup.md
+    - Batch: batch.md
 
 plugins:
     - search
