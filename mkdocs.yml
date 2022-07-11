@@ -9,9 +9,5 @@ theme:
 
 nav:
     - Home: index.md
-    - Setup: setup.md
-    - Batch: batch.md
-
-plugins:
-    - search
-
+    - Cedar basics: cedar.md
+    - ATLAS setup: atlas.md
