@@ -16,7 +16,7 @@ to run in a containerized environment. This is done by running
 
     setupATLAS -c centos7+batch
 
-This will put you in a singularity container that will give you an environment similar to that of lxplus. You can then 
+from your home directory. This will put you in a singularity container that will give you an environment similar to that of lxplus. You can then 
 run all ATLAS software as you normally would.
 
 ### Submitting batch jobs
