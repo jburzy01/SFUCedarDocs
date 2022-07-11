@@ -36,7 +36,7 @@ To do this, you can run (for example)
 
     salloc --time=16:0:0 --mem-per-cpu=32G --cpus-per-task=1 --account=ctb-stelzer --nodelist=cdr1642
 
-This will request a single CPU for 16 hours, with 32Gb of memory. You may need to replace `ctd-stelzer` with the name 
+This will request a single CPU for 16 hours, with 32Gb of memory. You may need to replace `ctb-stelzer` with the name 
 of the user that sponsored your account.
 
 
