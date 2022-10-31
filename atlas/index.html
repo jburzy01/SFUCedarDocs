@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>ATLAS setup - SFU Cedar</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "ATLAS setup";
+    var mkdocs_page_input_path = "atlas.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> SFU Cedar</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../cedar/">Cedar basics</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">ATLAS setup</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">SFU Cedar</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>ATLAS setup</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/jburzy01/SFUCedarDocs/tree/main/docs/atlas.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="first-time-configurations">First Time Configurations</h2>
+<p>To set up your environment for ATLAS-specific work, add the following lines to the file <code>$HOME/.bashrc</code></p>
+<pre><code>export RUCIO_ACCOUNT=&lt;your lxplus username&gt;
+source /home/atlas/Tier3/AtlasUserSiteSetup.sh
+</code></pre>
+<p>Thus will set up the <code>setupATLAS</code> alias and allow you to use <code>rucio</code>.
+If you plan to use the grid, install your grid certificates in your <code>$HOME/.globus</code> directory following the instructions
+<a href="https://ca.cern.ch/ca/Help/?kbid=024010">here</a>.</p>
+<h2 id="containers">Containers</h2>
+<p>Unlike lxplus, Cedar is not set up to natively run ATLAS software. To set up an lxplus-like environment, it is necessary
+to run in a containerized environment. This is done by running</p>
+<pre><code>setupATLAS -c centos7+batch
+</code></pre>
+<p>from your home directory. This will put you in a singularity container that will give you an environment similar to that of lxplus. You can then 
+run all ATLAS software as you normally would.</p>
+<h3 id="submitting-batch-jobs">Submitting batch jobs</h3>
+<p>You can submit and access the batch queues from inside your interactive container session.  For example, if you type</p>
+<pre><code>setupATLAS -c centos7+batch
+</code></pre>
+<p>you can next generate a script to submit to the batch system. eg.</p>
+<pre><code>batchScript "source &lt;somepath in container&gt;/myJob.sh" -o submitMyJob.sh
+</code></pre>
+<p>(The above will create a file <code>submitMyJob.sh</code> that will run <code>myJob.sh</code> inside the same type of container you are on now
+but on the batch queue.</p>
+<h2 id="storage">Storage</h2>
+<p>Cedar is co-located with the Tier2 site 'CA-SFU-T2', which allows you to access Tier2 storage directly from the Tier3.</p>
+<h3 id="requesting-rucio-rules">Requesting Rucio rules</h3>
+<p>Each user has a 5Tb quota on the <code>CA-SFU-T2_LOCALGROUPDISK</code> grid site. To request replication of a dataset to this site,
+see <a href="https://rucio-ui.cern.ch/r2d2/request">here</a> (note: requires installing your grid certificate in your browser).</p>
+<h3 id="finding-the-local-files">Finding the local files</h3>
+<p>A <a href="https://github.com/jburzy01/SFUCedarDocs/blob/main/scripts/discoverLocalPaths.py">script</a> is provided to determine
+the file paths using the rucio file checksum. Usage:</p>
+<pre><code>python discoverLocalPaths.py dsidList1.txt ... dsidListN.txt
+</code></pre>
+<p>where <code>dsidListX.txt</code> is a text file containing a list of rucio datasets that you which to locate. For each
+<code>dsidListX.txt</code>, this script will output a file <code>pathLists_dsidListX.txt</code> which contains the local paths to 
+all of the files in the input datasets. </p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../cedar/" class="btn btn-neutral" title="Cedar basics"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/jburzy01/SFUCedarDocs/" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../cedar/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
