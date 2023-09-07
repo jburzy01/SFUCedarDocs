@@ -39,4 +39,10 @@ To do this, you can run (for example)
 This will request a single CPU for 16 hours, with 32Gb of memory. You may need to replace `ctb-stelzer` with the name 
 of the user that sponsored your account.
 
+### `Disk quota exceeded` troubleshooting
 
+On cedar, files that you create will automatically be associated to your primary [group](https://docs.oracle.com/cd/E19120-01/open.solaris/819-2379/userconcept-35906/index.html), such as `ctb-stelzer`. This is relevant because the disk quotas are managed on a per-group basis. However, certain applications (such as MadGraph) can create files in a different group, which can lead to `disk quota exceeded` issues. To fix this, you can wrap the problematic command with `sg def-groupname -c`. E.g.
+
+```
+sg def-stelzer -c "./bin/mg5_aMC myScript.mg5"
+```
